@@ -3,6 +3,7 @@ package com.example.ejercicio1cmovil
 
 import android.content.Intent
 import android.media.MediaPlayer
+import android.os.Build
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,8 +17,12 @@ import android.widget.Spinner
 //import android.widget.ArrayAdapter
 //import android.widget.Spinner
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 
 import com.example.ejercicio1cmovil.databinding.ActivityMain2Binding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 
 
 class MainActivity2 : AppCompatActivity() {
@@ -25,6 +30,9 @@ class MainActivity2 : AppCompatActivity() {
     // private lateinit var binding: ActivityMainBinding
     private lateinit var binding: ActivityMain2Binding
     private var carreraS=""
+    private var diaS = 0
+    private var mesS = 0
+    private var anioS = 0
     //val carreras = resources.getStringArray(R.array.Carreras)
     val spinner = " "
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,11 +47,11 @@ class MainActivity2 : AppCompatActivity() {
         //      mp.start()
 
 
-        if(email("aa@bb")){
+/*        if(idEmail("aa@bb")){
             Log.d("CORREO", "Sí es correo")
         }else {
             Log.d("CORREO", "No es correo")
-        }
+        }*/
 
         val spinner: Spinner = findViewById(R.id.spinner)
 // Create an ArrayAdapter using the string array and a default spinner layout
@@ -76,11 +84,17 @@ class MainActivity2 : AppCompatActivity() {
         }
 
     }
+    private fun showDatePickerDialog() {
+        val date = DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
+        date.show(supportFragmentManager, "FechaNac")
+    }
 
-    private fun email(mail: CharSequence) =
-        (!TextUtils.isEmpty(mail) && Patterns.EMAIL_ADDRESS.matcher(mail).matches())
-
-
+    fun onDateSelected(day: Int, month: Int, year: Int) {
+        diaS = day
+        mesS = month + 1
+        anioS = year
+        binding.datePicker.setText("$day/$mesS/$year")
+    }
 
         fun click(view: View) {
 
@@ -96,6 +110,20 @@ class MainActivity2 : AppCompatActivity() {
             var banderaApellido= false;
             var banderaEmail= false;
             var banderaCarrera= false;
+
+           /*
+
+            while (fechaN == null) {
+                //print("Por favor ingresa tu fecha de nacimiento (formato dd/mm/yyyy): ")
+                val input = readLine()
+                try {
+                    fechaN = LocalDate.parse(input, DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                    //println("Tu fecha de nacimiento es: $fechaNacimiento")
+                } catch (ex: DateTimeParseException) {
+                    println("Formato de fecha incorrecto, por favor inténtalo de nuevo.")
+                }
+            }*/
+
 
             //Cuenta
             if (binding.idCuenta.text.isNotEmpty()) {
@@ -165,6 +193,7 @@ class MainActivity2 : AppCompatActivity() {
                 bundle.putString("apellido", apellido)
                 bundle.putString("email", email)
                 bundle.putString("carrera", carreraS)
+                bundle.putString("fecha", date)
 
                 intent.putExtras(bundle)
                 startActivity(intent)
