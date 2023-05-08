@@ -30,8 +30,6 @@ class MainActivity2 : AppCompatActivity() {
     val spinner = " "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main2)
-        // binding = DataBindingUtil.setContentView(this, R.layout.activity_main2)
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
         // Log.d("CICLODEVIDA", "onCreate")
@@ -45,6 +43,8 @@ class MainActivity2 : AppCompatActivity() {
         }else {
             Log.d("CORREO", "No es correo")
         }*/
+
+
 
         val spinner: Spinner = findViewById(R.id.spinner)
 // Create an ArrayAdapter using the string array and a default spinner layout
@@ -167,10 +167,18 @@ class MainActivity2 : AppCompatActivity() {
 
 
             //Correo
-            if (binding.idEmail.text.isNotEmpty()) {
 
-                //nombreObtenido = binding.idName.text.toString()
+            fun validar(correo: String): Boolean {
+                return android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()
+            }
+            if (binding.idEmail.text.isNotEmpty()) {
+                val email = binding.idEmail.text.toString()
+                if(validar(email))
                 banderaEmail=true;
+                else{
+                    Toast.makeText(this, "Ingresa un correo válido: ", Toast.LENGTH_LONG).show()
+                    banderaEmail= false;
+                }
 
             } else {
                 binding.idEmail.error = "Falta email"
