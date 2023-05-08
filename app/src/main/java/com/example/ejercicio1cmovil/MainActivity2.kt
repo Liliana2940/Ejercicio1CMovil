@@ -7,22 +7,15 @@ import android.os.Build
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
-import android.util.Patterns
+
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-//import android.widget.ArrayAdapter
-//import android.widget.Spinner
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 
 import com.example.ejercicio1cmovil.databinding.ActivityMain2Binding
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
+
 
 
 class MainActivity2 : AppCompatActivity() {
@@ -32,7 +25,7 @@ class MainActivity2 : AppCompatActivity() {
     private var carreraS=""
     private var diaS = 0
     private var mesS = 0
-    private var anioS = 0
+    private var anS = 0
     //val carreras = resources.getStringArray(R.array.Carreras)
     val spinner = " "
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,23 +71,25 @@ class MainActivity2 : AppCompatActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
+
+
             }
 
 
         }
 
     }
-    private fun showDatePickerDialog() {
+   /* private fun showDatePickerDialog() {
         val date = DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
-        date.show(supportFragmentManager, "FechaNac")
+        date.show(supportFragmentManager, "Fecha")
     }
 
     fun onDateSelected(day: Int, month: Int, year: Int) {
         diaS = day
         mesS = month + 1
-        anioS = year
-        binding.datePicker.setText("$day/$mesS/$year")
-    }
+        anS = year
+        //val fecha = binding.idDatePicker.setText("$day/$mesS/$year")
+    }*/
 
         fun click(view: View) {
 
@@ -193,7 +188,7 @@ class MainActivity2 : AppCompatActivity() {
                 bundle.putString("apellido", apellido)
                 bundle.putString("email", email)
                 bundle.putString("carrera", carreraS)
-                bundle.putString("fecha", date)
+               // bundle.putString("fecha", date)
 
                 intent.putExtras(bundle)
                 startActivity(intent)
