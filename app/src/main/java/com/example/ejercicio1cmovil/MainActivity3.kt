@@ -34,7 +34,7 @@ class MainActivity3 : AppCompatActivity() {
         val signoZ= intent.getStringExtra("signoZ")
         val signoC= intent.getStringExtra("signoC")
         val email= intent.getStringExtra("email")
-        val carrera= intent.getStringExtra("carrera")
+        val carreraS= intent.getStringExtra("carrera")
 
         val tNombre= findViewById<TextView>(R.id.Nombre2)
         val tCuenta= findViewById<TextView>(R.id.Tcuenta)
@@ -46,29 +46,29 @@ class MainActivity3 : AppCompatActivity() {
         tNombre.text = getString(R.string.res_nombre, nombre, apellido)
         tCuenta.text = getString(R.string.res_cuenta, cuenta)
         tCorreo.text=getString(R.string.res_correo, email)
-        tCarrera.text=getString(R.string.res_carrera, carrera)
+        tCarrera.text=getString(R.string.res_carrera, carreraS)
 
 
         val imageView = findViewById<ImageView>(R.id.iCarrera)
 
         //Imagen carrera
-        when (carrera) {
-            getString(R.string.Civil) -> imageView.setImageResource(R.drawable.Ingenieriacivil)
+        when (carreraS) {
+            getString(R.string.Civil) -> imageView.setImageResource(R.drawable.civil)
             getString(R.string.Electrica) -> imageView.setImageResource(R.drawable.ingenieriaelectricaelectronica)
-            getString(R.string.Industrial) -> imageView.setImageResource(R.drawable.Ingenieriaindustrial)
-            getString(R.string.Computacion) -> imageView.setImageResource(R.drawable.Ingenieriaencomputacion)
-            getString(R.string.Telecom) -> imageView.setImageResource(R.drawable.Ingenieriatelecomunicaciones)
-            getString(R.string.Mecanica) -> imageView.setImageResource(R.drawable.Ingenieriamecanica)
-            getString(R.string.Mecatronica) -> imageView.setImageResource(R.drawable.Ingenieriamecatronica)
-            getString(R.string.Petrolera) -> imageView.setImageResource(R.drawable.Ingenieriapetrolera)
-            getString(R.string.Aeroespacial) -> imageView.setImageResource(R.drawable.Ingenieriaaeroespacial)
-            getString(R.string.Geomatica) -> imageView.setImageResource(R.drawable.geomatico)
+            getString(R.string.Industrial) -> imageView.setImageResource(R.drawable.industrial)
+            getString(R.string.Computacion) -> imageView.setImageResource(R.drawable.computacion)
+            getString(R.string.Telecom) -> imageView.setImageResource(R.drawable.telecom)
+            getString(R.string.Mecanica) -> imageView.setImageResource(R.drawable.mecanica)
+            getString(R.string.Mecatronica) -> imageView.setImageResource(R.drawable.mecatronica)
+            getString(R.string.Petrolera) -> imageView.setImageResource(R.drawable.petrolera)
+            getString(R.string.Aeroespacial) -> imageView.setImageResource(R.drawable.aeroespacial)
+            getString(R.string.Geomatica) -> imageView.setImageResource(R.drawable.geomatica)
             getString(R.string.Ambiental) -> imageView.setImageResource(R.drawable.ambiental)
-            getString(R.string.IngGeoFis) -> imageView.setImageResource(R.drawable.geofisica)
-            getString(R.string.IngGeolo) -> imageView.setImageResource(R.drawable.geologia)
-            getString(R.string.IngMM) -> imageView.setImageResource(R.drawable.minas)
-            getString(R.string.IngSB) -> imageView.setImageResource(R.drawable.biomedico)
-            else -> imageView.setImageResource(R.drawable.cheems)
+            getString(R.string.Geofisica) -> imageView.setImageResource(R.drawable.geofisica)
+            getString(R.string.Geologica) -> imageView.setImageResource(R.drawable.geologica)
+            getString(R.string.Minas) -> imageView.setImageResource(R.drawable.metalurgia)
+            getString(R.string.Biomedicos) -> imageView.setImageResource(R.drawable.biomedicos)
+            else -> imageView.setImageResource(R.drawable.fondo1)
         }
 
     }

@@ -24,7 +24,7 @@ class MainActivity2 : AppCompatActivity() {
 
     // private lateinit var binding: ActivityMainBinding
     private lateinit var binding: ActivityMain2Binding
-
+    private var carreraS=""
     //val carreras = resources.getStringArray(R.array.Carreras)
     val spinner = " "
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,8 +65,8 @@ class MainActivity2 : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                Log.d("LOGTAG", "El item seleccionado tiene la posición $position")
-            }
+                carreraS=parent?.getItemAtPosition(position).toString()
+                 }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -88,7 +88,7 @@ class MainActivity2 : AppCompatActivity() {
             val cuenta = binding.idCuenta.text.toString()
             val apellido = binding.idApellido.text.toString()
             val email = binding.idEmail.text.toString()
-            val carrera= binding.idCarrera.text.toString()
+            //val carrera= binding.idCarrera.text.toString()
 
             //banderas
             var banderaNombre= false;
@@ -164,7 +164,7 @@ class MainActivity2 : AppCompatActivity() {
                 bundle.putString("cuenta", cuenta)
                 bundle.putString("apellido", apellido)
                 bundle.putString("email", email)
-                bundle.putString("carrera", carrera)
+                bundle.putString("carrera", carreraS)
 
                 intent.putExtras(bundle)
                 startActivity(intent)
