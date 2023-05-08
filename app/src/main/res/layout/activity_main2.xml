@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <DatePicker
+<!--<DatePicker
         android:id="@+id/idDatePicker"
         android:layout_width="274dp"
         android:layout_height="293dp"
@@ -30,7 +30,7 @@
         android:datePickerMode="calendar"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="78dp" />
+        tools:layout_editor_absoluteY="78dp" />-->
 
     <EditText
         android:id="@+id/idName"

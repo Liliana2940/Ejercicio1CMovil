@@ -38,12 +38,6 @@ class MainActivity2 : AppCompatActivity() {
         //      mp.start()
 
 
-/*        if(idEmail("aa@bb")){
-            Log.d("CORREO", "Sí es correo")
-        }else {
-            Log.d("CORREO", "No es correo")
-        }*/
-
 
 
         val spinner: Spinner = findViewById(R.id.spinner)
@@ -53,9 +47,8 @@ class MainActivity2 : AppCompatActivity() {
             R.array.Carreras,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
+
             spinner.adapter = adapter
         }
 
@@ -81,14 +74,14 @@ class MainActivity2 : AppCompatActivity() {
     }
    /* private fun showDatePickerDialog() {
         val date = DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
-        date.show(supportFragmentManager, "Fecha")
+        date.show(supportFragmentManager, "DatePicker")
     }
 
     fun onDateSelected(day: Int, month: Int, year: Int) {
         diaS = day
         mesS = month + 1
         anS = year
-        //val fecha = binding.idDatePicker.setText("$day/$mesS/$year")
+        val date = "$day/$month/$year"
     }*/
 
         fun click(view: View) {
@@ -196,7 +189,7 @@ class MainActivity2 : AppCompatActivity() {
                 bundle.putString("apellido", apellido)
                 bundle.putString("email", email)
                 bundle.putString("carrera", carreraS)
-               // bundle.putString("fecha", date)
+//                bundle.putString("fecha", date)
 
                 intent.putExtras(bundle)
                 startActivity(intent)
