@@ -6,7 +6,9 @@ import android.media.MediaPlayer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -37,7 +39,11 @@ class MainActivity2 : AppCompatActivity() {
         //      mp.start()
 
 
-
+        if(email("aa@bb")){
+            Log.d("CORREO", "Sí es correo")
+        }else {
+            Log.d("CORREO", "No es correo")
+        }
 
         val spinner: Spinner = findViewById(R.id.spinner)
 // Create an ArrayAdapter using the string array and a default spinner layout
@@ -70,6 +76,10 @@ class MainActivity2 : AppCompatActivity() {
         }
 
     }
+
+    private fun email(mail: CharSequence) =
+        (!TextUtils.isEmpty(mail) && Patterns.EMAIL_ADDRESS.matcher(mail).matches())
+
 
 
         fun click(view: View) {
@@ -106,17 +116,17 @@ class MainActivity2 : AppCompatActivity() {
                 banderaCuenta= false;
             }
 
-
+        //Nombre
             if (binding.idName.text.isNotEmpty()) {
 
                 //nombreObtenido = binding.idName.text.toString()
-                banderaCuenta=true;
+                banderaNombre=true;
 
             } else {
                 binding.idName.error = "Falta nombre"
 
                 Toast.makeText(this, "Por favor ingresa nombre:", Toast.LENGTH_LONG).show()
-                banderaCuenta= false;
+                banderaNombre= false;
             }
 
             //apellido
@@ -132,6 +142,20 @@ class MainActivity2 : AppCompatActivity() {
                 banderaApellido= false;
             }
 
+
+            //Correo
+            if (binding.idEmail.text.isNotEmpty()) {
+
+                //nombreObtenido = binding.idName.text.toString()
+                banderaEmail=true;
+
+            } else {
+                binding.idEmail.error = "Falta email"
+
+                Toast.makeText(this, "Por favor ingresa email: ", Toast.LENGTH_LONG).show()
+                banderaEmail= false;
+            }
+
             if(banderaNombre==true && banderaCuenta==true && banderaApellido==true&& banderaEmail==true) {
                 // Boton al siguiente activity
                 val intent = Intent(this, MainActivity3::class.java)
@@ -144,6 +168,10 @@ class MainActivity2 : AppCompatActivity() {
 
                 intent.putExtras(bundle)
                 startActivity(intent)
+            }
+            else{
+                //banderaNombre.error="falta nombre"
+                binding.idEmail.error = "Falta email"
             }
 
         }

@@ -15,23 +15,22 @@
     <string name="res_carrera">Carrera: %1$s\n</string>
 
 
-    <string-array name="Carreras">
-        <item>Ingeniería Aeroespacial</item>
-        <item>Ingeniería Ambiental</item>
-        <item>Ingeniería Civil</item>
-        <item>Ingeniería en Computación</item>
-        <item>Ingeniería Eléctrica Electrónica</item>
-        <item>Ingeniería Geofísica</item>
-        <item>Ingeniería Geológica</item>
-        <item>Ingeniería Geomática</item>
-        <item>Ingeniería Industrial</item>
-        <item>Ingeniería Mecánica</item>
-        <item>Ingeniería Mecatrónica</item>
-        <item>Ingeniería de Minas y Metalurgia</item>
-        <item>Ingeniería Petrolera</item>
-        <item>Ingeniería en Sistemas Biomédicos</item>
-        <item>Ingeniería en Telecomunicaciones</item>
 
-    </string-array>
+        <string name="Aeroespacial">Ingeniería Aeroespacial</string>
+        <string name="Ambiental">Ingeniería Ambiental</string>
+        <string name="Civil">Ingeniería Civil</string>
+        <string name="Computacion">Ingeniería en Computación</string>
+        <string name="Electrica">Ingeniería Eléctrica Electrónica</string>
+        <string name="Geofisica">Ingeniería Geofísica</string>
+        <string name="Geologica">Ingeniería Geológica</string>
+        <string name="Geomatica">Ingeniería Geomática</string>
+        <string name="Industrial">Ingeniería Industrial</string>
+        <string name="Mecanica">Ingeniería Mecánica</string>
+        <string name="Mecatronica">Ingeniería Mecatrónica</string>
+        <string name="Minas">Ingeniería de Minas y Metalurgia</string>
+        <string name="Petrolera">Ingeniería Petrolera</string>
+        <string name="Biomedicos">Ingeniería en Sistemas Biomédicos</string>
+        <string name="Telecom">Ingeniería en Telecomunicaciones</string>
+
 
 </resources>
