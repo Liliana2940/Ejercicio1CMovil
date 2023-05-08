@@ -26,12 +26,29 @@ class MainActivity3 : AppCompatActivity() {
                 .show()
         }*/
 
-        val nombre=intent.getStringExtra("idName")
-        val cuenta= intent.getStringExtra("idCuenta")
-
+        val nombre=intent.getStringExtra("nombre")
+        val apellido=intent.getStringExtra("apellido")
+        val cuenta= intent.getStringExtra("cuenta")
+        val edad= intent.getStringExtra("edad")
+        val signoZ= intent.getStringExtra("signoZ")
+        val signoC= intent.getStringExtra("signoC")
+        val email= intent.getStringExtra("email")
+        val carrera= intent.getStringExtra("carrera")
 
         val tNombre= findViewById<TextView>(R.id.Nombre2)
-        //val tCuenta= findViewById<TextView>(R.id.Tcuenta)
+        val tCuenta= findViewById<TextView>(R.id.Tcuenta)
+        val tSignoC= findViewById<TextView>(R.id.TSignoC)
+        val tSignoZ= findViewById<TextView>(R.id.TSignoZ)
+        val tCorreo= findViewById<TextView>(R.id.TCorreo)
+        val tCarrera= findViewById<TextView>(R.id.TCarrera)
+
+        tNombre.text = getString(R.string.res_nombre, nombre, apellido)
+        tCuenta.text = getString(R.string.res_cuenta, cuenta)
+        tCorreo.text=getString(R.string.res_correo)
+
+
+
+
     }
 
 

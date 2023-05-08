@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 //import android.widget.ArrayAdapter
 //import android.widget.Spinner
 import android.widget.Toast
@@ -21,8 +22,6 @@ class MainActivity2 : AppCompatActivity() {
 
     // private lateinit var binding: ActivityMainBinding
     private lateinit var binding: ActivityMain2Binding
-    var cuenta = 0
-    var nombre = " "
 
     //val carreras = resources.getStringArray(R.array.Carreras)
     val spinner = " "
@@ -38,15 +37,20 @@ class MainActivity2 : AppCompatActivity() {
         //      mp.start()
 
 
+
+
+        val spinner: Spinner = findViewById(R.id.spinner)
+// Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
             this,
             R.array.Carreras,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spinner.adapter = adapter
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
         }
-
 
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -70,54 +74,78 @@ class MainActivity2 : AppCompatActivity() {
 
         fun click(view: View) {
 
+            val nombre = binding.idName.text.toString()
+            val cuenta = binding.idCuenta.text.toString()
+            val apellido = binding.idApellido.text.toString()
+            val email = binding.idEmail.text.toString()
+            val carrera= binding.idCarrera.text.toString()
+
+            //banderas
+            var banderaNombre= false;
+            var banderaCuenta= false;
+            var banderaApellido= false;
+            var banderaEmail= false;
+            var banderaCarrera= false;
+
             //Cuenta
             if (binding.idCuenta.text.isNotEmpty()) {
 
-                cuenta = binding.idCuenta.text.toString().toInt()
+               // cuenta = binding.idCuenta.text.toString().toInt()
+                if(cuenta.length== 9) {
+                    banderaCuenta = true;
 
-                Toast.makeText(this, "El número ingresado es: $cuenta", Toast.LENGTH_LONG).show()
+                }
+                else{
+                    binding.idCuenta.error = "Ingrese nueve digitos"
+                    banderaCuenta= false;
+                }
             } else {
                 binding.idCuenta.error = "Valor requerido"
 
                 Toast.makeText(this, "Por favor ingresa numero: ", Toast.LENGTH_LONG).show()
-
+                banderaCuenta= false;
             }
 
 
-            if (binding.idCuenta.text.isNotEmpty()) {
+            if (binding.idName.text.isNotEmpty()) {
 
-                nombre = binding.idName.text.toString()
+                //nombreObtenido = binding.idName.text.toString()
+                banderaCuenta=true;
 
-                Toast.makeText(this, "El nombre es: $cuenta", Toast.LENGTH_LONG).show()
             } else {
-                binding.idCuenta.error = "Valor requerido"
+                binding.idName.error = "Falta nombre"
 
-                Toast.makeText(this, "Por favor ingresa numero: ", Toast.LENGTH_LONG).show()
-
+                Toast.makeText(this, "Por favor ingresa nombre:", Toast.LENGTH_LONG).show()
+                banderaCuenta= false;
             }
-            /*
-        val spinner: Spinner = findViewById(R.id.spinner)
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.Carreras,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-        }
-*/
 
-            // Boton al siguiente activity
-            val intent = Intent(this, MainActivity3::class.java)
-            val bundle = Bundle()
-            bundle.putString("nombre", "lili")
-            bundle.putInt("cuenta", 45154)
+            //apellido
+            if (binding.idApellido.text.isNotEmpty()) {
 
-            intent.putExtras(bundle)
-            startActivity(intent)
+                //nombreObtenido = binding.idName.text.toString()
+                banderaApellido=true;
+
+            } else {
+                binding.idApellido.error = "Falta apellido"
+
+                Toast.makeText(this, "Por favor ingresa apellido: ", Toast.LENGTH_LONG).show()
+                banderaApellido= false;
+            }
+
+            if(banderaNombre==true && banderaCuenta==true && banderaApellido==true&& banderaEmail==true) {
+                // Boton al siguiente activity
+                val intent = Intent(this, MainActivity3::class.java)
+                val bundle = Bundle()
+                bundle.putString("nombre", nombre)
+                bundle.putString("cuenta", cuenta)
+                bundle.putString("apellido", apellido)
+                bundle.putString("email", email)
+                bundle.putString("carrera", carrera)
+
+                intent.putExtras(bundle)
+                startActivity(intent)
+            }
+
         }
 
     }

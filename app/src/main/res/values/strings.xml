@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Ejercicio1CMovil</string>
-
-
     <string name="selected_item">Selected item:</string>
+    <string name="Nombres_text">Nombre(s) y Apellido(s)</string>
+    <string name="Apellidos_text">Apellidos</string>
+    <string name="FechaNacimiento_text">Fecha de Nacimiento</string>
+    <string name="CorreoElectronico_text">Correo Electronico</string>
+    <string name="NCuenta_text">"Cuenta"</string>
+    <string name="Carrera_text">Carrera</string>
+    <string name="BotonEnviar_text">Enviar</string>
+
+    <string name="res_nombre">Nombre: %1$s %2$s \n</string>
+    <string name="res_cuenta">Número de cuenta: %1$s \n</string>
+    <string name="res_correo">Correo: %1$s\n</string>
+    <string name="res_carrera">Carrera: %1$s\n</string>
+
 
     <string-array name="Carreras">
         <item>Ingeniería Aeroespacial</item>
